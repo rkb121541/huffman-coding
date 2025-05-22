@@ -79,15 +79,15 @@ std::map<std::string, char> flip_map(const std::map<char, std::string> &src)
 int main(int argc, char const *argv[]) {
   std::map<char, int> characterFrequencies;
   // reading a file
-  std::ifstream file("./examples/simple_paragraph.txt");
+  std::ifstream inputFile("./examples/simple_paragraph.txt");
   // error checking to make sure file is open
-  if (!file) {
-    std::cout << "Unable to open file" << std::endl;
+  if (!inputFile) {
+    std::cerr << "Unable to open file" << std::endl;
     return 1;
   }
   char ch;
   std::string inputString;
-  while (file.get(ch)) {
+  while (inputFile.get(ch)) {
     characterFrequencies[ch]++; // add ch to map
     std::string charToString(1, ch);
     inputString.append(charToString); // add charToString to inputString
@@ -164,7 +164,30 @@ int main(int argc, char const *argv[]) {
         rightptr++;
     }
   }
+
+  // make the actual encode file
+  // encode file will include the table of mappings and the encoded string
+  std::ofstream encodedFile("./examples_encodings/simple_paragraph_encoding.txt");
+  // for error checking
+  if (!encodedFile) {
+    std::cerr << "Unable to open file" << std::endl;
+    return 1;
+  }
+    
+  for (auto elem : encodings) {
+    if (elem.first == '\n') {
+      encodedFile << std::format("NEWLINE {}", elem.second) << "\n";
+    } else if (elem.first == ' ') {
+      encodedFile << std::format("SPACE {}", elem.second) << "\n";
+    } else {
+      encodedFile << std::format("{} {}", elem.first, elem.second) << "\n";
+    }
+  }
+  encodedFile << "\n";
+  encodedFile << encodedString;
+  encodedFile.close();
   
+
   std::cout << result << std::endl;
   
   return 0;
