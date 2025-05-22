@@ -1,0 +1,1 @@
+Data compression reduces the size of files by removing redundancy. Huffman coding is a popular method based on character frequencies.
