@@ -7,3 +7,5 @@ Since I use ```std::format()``` which is only available in C++ versions 20 and a
 The ```./examples/``` directory contains some examples of text that we can use to perform the huffman coding algorithm on. You can also put your own files in this directory and make the necessary changes in ```main.cpp```
 
 The ```./examples_encodings/``` directory provides encodings of these texts respectively
+
+**TODO:** improve the readme, finish the encodings and decodings. separate them into different files 
