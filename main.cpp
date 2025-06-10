@@ -79,7 +79,7 @@ std::map<std::string, char> flip_map(const std::map<char, std::string> &src)
 int main(int argc, char const *argv[]) {
   std::map<char, int> characterFrequencies;
   // reading a file
-  std::ifstream inputFile("./examples/simple_paragraph.txt");
+  std::ifstream inputFile("./examples_og/simple_paragraph.txt");
   // error checking to make sure file is open
   if (!inputFile) {
     std::cerr << "Unable to open file" << std::endl;
