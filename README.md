@@ -1,4 +1,6 @@
-# Huffman Coding
+# Hzip
+
+I use the Huffman Coding algorithm to make a file compressor software.
 
 In my implementation, I order the priority queue from min to max
 
